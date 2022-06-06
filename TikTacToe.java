@@ -1,27 +1,28 @@
-package tikTacToe;
+package LLD;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Game {
-	
-	private final char[][] board;
+public class TikTacToe {
+
+	private final char board[][];
 	private final int size;
-	
-	public Game(int size) {
-		this.size=size;
-		this.board=new char[this.size][this.size];
-		this.initialize();
-	}
-	
-	private void initialize() {
-		for(int i=0;i<size;i++) {
-			Arrays.fill(board[i], '-');
-		}
+
+	public TikTacToe(int size) {
+		this.size = size;
+		this.board = new char[size][size];
+		this.boardFill();
 	}
 
-	public static void main(String[] arg) {
-		Game toe = new Game(3);
+	private void boardFill() {
+		for (int i = 0; i < size; i++) {
+			Arrays.fill(board[i], '-');
+		}
+
+	}
+
+	public static void main(String[] args) {
+		TikTacToe toe = new TikTacToe(3);
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Lets Play Game: ");
 		System.out.println("Player 1 , What is your name? ");
@@ -33,7 +34,7 @@ public class Game {
 
 		toe.print();
 	}
-	
+
 	private void startGame(String p1, String p2, Scanner scanner) {
 		boolean player1 = true;
 		boolean gameEnd = false;
@@ -150,4 +151,5 @@ public class Game {
 		}
 
 	}
+
 }
